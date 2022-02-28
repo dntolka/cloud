@@ -4,6 +4,7 @@ sudo docker-compose up -d --build
 
 ################################ data ################################
 ################################ mysql ################################
+
 sudo docker cp ./idm_backup/idm.sql db-mysql:/idm.sql
 
 sudo docker exec -it db-mysql /bin/bash
