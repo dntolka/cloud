@@ -3,6 +3,7 @@
 sudo docker-compose up -d --build
 
 ################################ data ################################
+
 ################################ mysql ################################
 
 sudo docker cp ./idm_backup/idm.sql db-mysql:/idm.sql
@@ -14,6 +15,7 @@ mysql -u root -psecret idm < idm.sql
 exit
 
 ################################ mongo data storage ################################
+
 sudo docker cp ./volumes_data mongo_db:/volumes_data
 
 sudo docker exec -it mongo_db /bin/bash
@@ -27,6 +29,7 @@ mongoimport --host mongo_db --db cloud --collection feedback --type json --file 
 exit
 
 ################################ mongo orion ################################
+
 sudo docker cp ./volumes_data mongo_db_orion:/volumes_data
 
 sudo docker exec -it mongo_db_orion /bin/bash
