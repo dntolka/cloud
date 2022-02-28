@@ -1,10 +1,10 @@
-################################ BUILD & RUN PROJECT ################################
+################################ BUILD PROJECT ################################
 
 sudo docker-compose up -d --build
 
-################################ data ################################
+############ data ############
 
-################################ mysql ################################
+############ mysql ############
 
 sudo docker cp ./idm_backup/idm.sql db-mysql:/idm.sql
 
@@ -14,7 +14,7 @@ mysql -u root -psecret idm < idm.sql
 
 exit
 
-################################ mongo data storage ################################
+############ mongo data storage ############
 
 sudo docker cp ./volumes_data mongo_db:/volumes_data
 
@@ -28,7 +28,7 @@ mongoimport --host mongo_db --db cloud --collection feedback --type json --file 
 
 exit
 
-################################ mongo orion ################################
+############ mongo orion ############
 
 sudo docker cp ./volumes_data mongo_db_orion:/volumes_data
 
@@ -39,3 +39,9 @@ mongoimport --host mongo_db_orion --db orion --collection entities --type json -
 mongoimport --host mongo_db_orion --db orion --collection csubs --type json --file /volumes_data/csubs.json --jsonArray
 
 exit
+
+################################ RUN PROJECT ################################
+
+Enter the following url in the browser:
+
+http://localhost:8001/index.php
