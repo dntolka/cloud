@@ -1,0 +1,266 @@
+[{
+  "_id": {
+    "id": "61c72301a24f041a325ab287",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "date",
+    "artistname",
+    "category",
+    "userid"
+  ],
+  "attrs": {
+    "title": {
+      "value": "ITS MY LIFE",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640440577.1578205,
+      "modDate": 1640440627.4804776
+    },
+    "date": {
+      "value": "2021-01-21",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640440577.1578205,
+      "modDate": 1640631080.0377002
+    },
+    "artistname": {
+      "value": "BON JOVI",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640440577.1578205,
+      "modDate": 1640440627.4804838
+    },
+    "category": {
+      "value": "ROCK",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640440577.1578205,
+      "modDate": 1640440627.4804862
+    },
+    "userid": {
+      "type": "Text",
+      "creDate": 1640440577.1578205,
+      "modDate": 1640440577.1578205,
+      "value": "62bbc117-95eb-46cd-b9ab-c285e91c60c9",
+      "mdNames": []
+    }
+  },
+  "creDate": 1640440577.1578205,
+  "modDate": 1640631080.037734,
+  "lastCorrelator": "fad5e194-6745-11ec-8d16-0242ac120107"
+},{
+  "_id": {
+    "id": "61c724dcfd6e183eb017d626",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "date",
+    "artistname",
+    "category",
+    "userid"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1640441052.6887026,
+      "modDate": 1640441052.6887026,
+      "value": "TRAITOR",
+      "mdNames": []
+    },
+    "date": {
+      "value": "2021-07-11",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640441052.6887026,
+      "modDate": 1640631137.6138124
+    },
+    "artistname": {
+      "value": "OLIVIA RODRIGO",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640441052.6887026,
+      "modDate": 1640441118.5271275
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1640441052.6887026,
+      "modDate": 1640441052.6887026,
+      "value": "POP",
+      "mdNames": []
+    },
+    "userid": {
+      "type": "Text",
+      "creDate": 1640441052.6887026,
+      "modDate": 1640441052.6887026,
+      "value": "e711a1d4-852e-4143-988d-c5e72e9e014c",
+      "mdNames": []
+    }
+  },
+  "creDate": 1640441052.6887026,
+  "modDate": 1640631137.6138277,
+  "lastCorrelator": "1d274b34-6746-11ec-8f8f-0242ac120107"
+},{
+  "_id": {
+    "id": "61c7ac4cc87d28017541d9e2",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "date",
+    "artistname",
+    "category",
+    "userid"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1640475724.1038165,
+      "modDate": 1640475724.1038165,
+      "value": "WRITINGS",
+      "mdNames": []
+    },
+    "date": {
+      "value": "2022-02-12",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640475724.1038165,
+      "modDate": 1640529865.2822692
+    },
+    "artistname": {
+      "type": "Text",
+      "creDate": 1640475724.1038165,
+      "modDate": 1640475724.1038165,
+      "value": "SAM SMITH",
+      "mdNames": []
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1640475724.1038165,
+      "modDate": 1640475724.1038165,
+      "value": "BALADA",
+      "mdNames": []
+    },
+    "userid": {
+      "type": "Text",
+      "creDate": 1640475724.1038165,
+      "modDate": 1640475724.1038165,
+      "value": "62bbc117-95eb-46cd-b9ab-c285e91c60c9",
+      "mdNames": []
+    }
+  },
+  "creDate": 1640475724.1038165,
+  "modDate": 1640529865.2823017,
+  "lastCorrelator": "5223a5a4-665a-11ec-9e90-0242ac120107"
+},{
+  "_id": {
+    "id": "61c8825563713b6b5c5bd212",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "date",
+    "artistname",
+    "category",
+    "userid"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1640530517.0504463,
+      "modDate": 1640530517.0504463,
+      "value": "NOT ALONE",
+      "mdNames": []
+    },
+    "date": {
+      "value": "2021-10-02",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640530517.0504463,
+      "modDate": 1640561058.6986115
+    },
+    "artistname": {
+      "value": "SHAWN MENDES",
+      "type": "Text",
+      "mdNames": [],
+      "creDate": 1640530517.0504463,
+      "modDate": 1640530531.8916194
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1640530517.0504463,
+      "modDate": 1640530517.0504463,
+      "value": "MIXED",
+      "mdNames": []
+    },
+    "userid": {
+      "type": "Text",
+      "creDate": 1640530517.0504463,
+      "modDate": 1640530517.0504463,
+      "value": "e711a1d4-852e-4143-988d-c5e72e9e014c",
+      "mdNames": []
+    }
+  },
+  "creDate": 1640530517.0504463,
+  "modDate": 1640561058.6986265,
+  "lastCorrelator": "f2dd80e4-66a2-11ec-8932-0242ac120107"
+},{
+  "_id": {
+    "id": "61cce5ba50d4f30da74ebaf6",
+    "type": "Thing",
+    "servicePath": "/"
+  },
+  "attrNames": [
+    "title",
+    "date",
+    "artistname",
+    "category",
+    "userid"
+  ],
+  "attrs": {
+    "title": {
+      "type": "Text",
+      "creDate": 1640818106.1615627,
+      "modDate": 1640818106.1615627,
+      "value": "NO TIME TO DIE",
+      "mdNames": []
+    },
+    "date": {
+      "type": "Text",
+      "creDate": 1640818106.1615627,
+      "modDate": 1640818106.1615627,
+      "value": "2021-01-12",
+      "mdNames": []
+    },
+    "artistname": {
+      "type": "Text",
+      "creDate": 1640818106.1615627,
+      "modDate": 1640818106.1615627,
+      "value": "BILLIE",
+      "mdNames": []
+    },
+    "category": {
+      "type": "Text",
+      "creDate": 1640818106.1615627,
+      "modDate": 1640818106.1615627,
+      "value": "POP",
+      "mdNames": []
+    },
+    "userid": {
+      "type": "Text",
+      "creDate": 1640818106.1615627,
+      "modDate": 1640818106.1615627,
+      "value": "62bbc117-95eb-46cd-b9ab-c285e91c60c9",
+      "mdNames": []
+    }
+  },
+  "creDate": 1640818106.1615627,
+  "modDate": 1640818106.1615627,
+  "lastCorrelator": "6f17aa88-68f9-11ec-8691-0242ac120107"
+}]

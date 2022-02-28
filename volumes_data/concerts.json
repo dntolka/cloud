@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "61c72301a24f041a325ab287"
+  },
+  "title": "ITS MY LIFE",
+  "date": {
+    "$date": "2021-01-21T00:00:00Z"
+  },
+  "artistname": "BON JOVI",
+  "category": "ROCK",
+  "userid": "62bbc117-95eb-46cd-b9ab-c285e91c60c9"
+},{
+  "_id": {
+    "$oid": "61c724dcfd6e183eb017d626"
+  },
+  "title": "TRAITOR",
+  "date": {
+    "$date": "2021-07-11T00:00:00Z"
+  },
+  "artistname": "OLIVIA RODRIGO",
+  "category": "POP",
+  "userid": "e711a1d4-852e-4143-988d-c5e72e9e014c"
+},{
+  "_id": {
+    "$oid": "61c7ac4cc87d28017541d9e2"
+  },
+  "title": "WRITINGS",
+  "date": {
+    "$date": "2022-02-12T00:00:00Z"
+  },
+  "artistname": "SAM SMITH",
+  "category": "BALADA",
+  "userid": "62bbc117-95eb-46cd-b9ab-c285e91c60c9"
+},{
+  "_id": {
+    "$oid": "61c8825563713b6b5c5bd212"
+  },
+  "title": "NOT ALONE",
+  "date": {
+    "$date": "2021-10-02T00:00:00Z"
+  },
+  "artistname": "SHAWN MENDES",
+  "category": "MIXED",
+  "userid": "e711a1d4-852e-4143-988d-c5e72e9e014c"
+},{
+  "_id": {
+    "$oid": "61cce5ba50d4f30da74ebaf6"
+  },
+  "title": "NO TIME TO DIE",
+  "date": {
+    "$date": "2021-01-12T00:00:00Z"
+  },
+  "artistname": "BILLIE",
+  "category": "POP",
+  "userid": "62bbc117-95eb-46cd-b9ab-c285e91c60c9"
+}]

@@ -1,0 +1,195 @@
+version: "3.5"
+services:
+
+  #######################################################Data Storage#######################################################
+  mongo_db:
+    image: mongo
+    container_name: mongo_db
+    restart: always
+    hostname: mongo_db
+    ports: 
+      - '27018:27017'
+    volumes: 
+      - mongo_db:/data/db
+    networks:
+      default:
+        ipv4_address: 172.18.1.10 
+
+  data_storage_apache:
+    build: 
+      context: .
+      dockerfile:  './dockerfiles/data_storage/Dockerfile'
+    container_name: data_storage_apache
+    restart: always
+    links:
+      - mongo_db
+    volumes:
+      - ./Data_storage:/var/www/html/
+    expose: 
+      - '80'
+    networks:
+      default:
+        ipv4_address: 172.18.1.9
+
+  data_storage_proxy:
+    image: fiware/pep-proxy 
+    container_name: data_storage_proxy
+    depends_on:
+    - keyrock
+    ports:
+    - "2000:1027"
+    expose:
+    - "2000"
+    environment: 
+    - DEBUG=pep-proxy:*
+    - PEP_PROXY_APP_HOST=data_storage_apache
+    - PEP_PROXY_APP_PORT=80
+    - PEP_PROXY_PORT=2000
+    - PEP_PROXY_IDM_HOST=keyrock
+    - PEP_PROXY_HTTPS_ENABLED=false
+    - PEP_PROXY_AUTH_ENABLED=false
+    - PEP_PROXY_IDM_SSL_ENABLED=false
+    - PEP_PROXY_IDM_PORT=3005 #keyrock port
+    - PEP_PROXY_APP_ID=abe27d6b-9ffb-4bbc-b016-105bc0a909f6
+    - PEP_PROXY_USERNAME=pep_proxy_30f20e20-ce8e-4223-a799-e481c590658b
+    - PEP_PASSWORD=pep_proxy_75a35810-6665-4102-a035-602d7be4180e
+    - PEP_PROXY_PDP=idm
+    - PEP_PROXY_MAGIC_KEY=magic_key 
+    networks:
+      default:
+        ipv4_address: 172.18.1.11 
+
+  #######################################################Orion Context Broker#######################################################
+  mongo_db_orion:
+    image: mongo:3.2
+    container_name: mongo_db_orion
+    hostname: mongo_db_orion
+    restart: always
+    command: --nojournal
+    ports: 
+      - '27017:27017'
+    volumes: 
+      - orion_vol:/data/db 
+
+  orion:
+    image: fiware/orion
+    container_name: orion
+    hostname: orion
+    restart: always
+    depends_on:
+      - mongo_db_orion
+      - keyrock
+    command: -dbhost mongo_db_orion -logLevel DEBUG
+    ports: 
+      - '1026:1026' 
+    expose:
+      - '1026'
+    healthcheck:
+      test: curl --fail -s http://localhost:1026/version || exit
+    networks:
+      default:
+        ipv4_address: 172.18.1.7
+
+  orion_proxy:
+    image: fiware/pep-proxy 
+    container_name: orion_proxy
+    depends_on:
+    - keyrock
+    ports:
+    - "1027:1027"
+    expose:
+    - "1027"
+    environment: 
+    - DEBUG=pep-proxy:*
+    - PEP_PROXY_APP_HOST=orion
+    - PEP_PROXY_APP_PORT=1026
+    - PEP_PROXY_PORT=1027
+    - PEP_PROXY_IDM_HOST=keyrock
+    - PEP_PROXY_HTTPS_ENABLED=false
+    - PEP_PROXY_AUTH_ENABLED=false
+    - PEP_PROXY_IDM_SSL_ENABLED=false
+    - PEP_PROXY_IDM_PORT=3005 #keyrock port
+    - PEP_PROXY_APP_ID=abe27d6b-9ffb-4bbc-b016-105bc0a909f6
+    - PEP_PROXY_USERNAME=pep_proxy_30f20e20-ce8e-4223-a799-e481c590658b
+    - PEP_PASSWORD=pep_proxy_75a35810-6665-4102-a035-602d7be4180e
+    - PEP_PROXY_PDP=idm
+    - PEP_PROXY_MAGIC_KEY=magic_key 
+    networks:
+      default:
+        ipv4_address: 172.18.1.12 
+
+  #######################################################Keyrock#######################################################
+  # Keyrock is an Identity Management Front-End
+  keyrock:
+    image: fiware/idm:7.6.0
+    container_name: fiware-keyrock
+    hostname: keyrock
+    networks:
+      default:
+        ipv4_address: 172.18.1.5
+    depends_on:
+      - mysql-db
+    ports:
+      - "3005:3005" # localhost:3005
+      - "443:443" # localhost:443
+    environment:
+      - DEBUG=idm:*
+      - IDM_DB_HOST=mysql-db
+      - IDM_DB_PASS=secret
+      - IDM_DB_USER=root
+      - IDM_HOST=http://localhost:3005
+      - IDM_PORT=3005
+      - IDM_HTTPS_ENABLED=false
+      - IDM_HTTPS_PORT=443
+      - IDM_ADMIN_USER=dntolka
+      - IDM_ADMIN_EMAIL=dntolka@test.com
+      - IDM_ADMIN_PASS=test
+    healthcheck:
+      interval: 5s
+
+  # Database
+  mysql-db:
+    restart: always
+    image: mysql:5.7
+    hostname: mysql-db
+    container_name: db-mysql
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306" # localhost:3306
+    networks:
+      default:
+        ipv4_address: 172.18.1.6
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_ROOT_HOST=172.18.1.5" # Allow Keyrock to access this database
+    volumes:
+      - ./idm_backup:/docker-entrypoint-initdb.d
+      - mysql-db:/var/lib/mysql
+
+  #######################################################Application Logic#######################################################
+  app_logic_apache:
+    build: 
+      context: .
+      dockerfile:  './dockerfiles/app_logic/Dockerfile'
+    container_name: app_logic_apache
+    restart: always
+    ports: 
+      - '8001:80'
+    volumes:
+      - ./Application_logic:/var/www/html/
+    expose: 
+      - '8001'
+    networks:
+      default:
+        ipv4_address: 172.18.1.8
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
+volumes:
+  mysql-db: ~
+  mongo_db: ~
+  orion_vol: ~
